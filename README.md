@@ -104,3 +104,8 @@ See [`system/linux-config/INSTALL.md`](system/linux-config/INSTALL.md) for full 
 ## License
 
 MIT
+
+## dev log |
+
+v1 was pushed at  (15 July 2026 at 15:42)
+   initail com is still v1 with json files beng the main change 
