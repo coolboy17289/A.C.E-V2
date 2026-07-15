@@ -36,6 +36,8 @@ export default defineConfig({
       // -----------------------------------------------------------------
       '@ace/shared': fileURLToPath(new URL('../shared/src', import.meta.url)),
       '@ace/app-ai': fileURLToPath(new URL('../apps/ai/src', import.meta.url)),
+      '@ace/app-focus': fileURLToPath(new URL('../apps/focus/src', import.meta.url)),
+      '@ace/app-home': fileURLToPath(new URL('../apps/home/src', import.meta.url)),
       '@ace/app-settings': fileURLToPath(new URL('../apps/settings/src', import.meta.url)),
       // -----------------------------------------------------------------
       // Asset folder alias — public/backgrounds/ reachable as @backgrounds

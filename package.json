@@ -8,6 +8,8 @@
     "frontend/desktop-shell",
     "frontend/shared",
     "frontend/apps/ai",
+    "frontend/apps/focus",
+    "frontend/apps/home",
     "frontend/apps/settings"
   ],
   "scripts": {

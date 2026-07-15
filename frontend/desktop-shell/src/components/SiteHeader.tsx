@@ -9,13 +9,13 @@ interface ViewMeta {
 /**
  * Subset of `ActiveView` for which we know how to render a styled
  * header. The Sidebar only surfaces shipped app ids in its nav, so in
- * practice `activeView` is only ever one of these three; typing
- * `VIEW_META` as a `Record<ShippedView, ViewMeta>` keeps TypeScript
- * honest if a parked app id ever leaks into the store.
+ * practice `activeView` is only ever one of these; typing `VIEW_META`
+ * as a `Record<ShippedView, ViewMeta>` keeps TypeScript honest if a
+ * parked app id ever leaks into the store.
  */
-type ShippedView = 'dashboard' | 'ai' | 'settings';
+type ShippedView = 'dashboard' | 'ai' | 'focus' | 'home' | 'settings';
 
-const SHIPPED_VIEWS = new Set<ShippedView>(['dashboard', 'ai', 'settings']);
+const SHIPPED_VIEWS = new Set<ShippedView>(['dashboard', 'ai', 'focus', 'home', 'settings']);
 
 const VIEW_META: Record<ShippedView, ViewMeta> = {
   dashboard: {
@@ -25,6 +25,14 @@ const VIEW_META: Record<ShippedView, ViewMeta> = {
   ai: {
     title: 'AI Tutor',
     subtitle: 'Ask anything about your study topics. Answers are study-aware.',
+  },
+  focus: {
+    title: 'Focus',
+    subtitle: 'Pomodoro timer with break tracking and session history.',
+  },
+  home: {
+    title: 'Home',
+    subtitle: 'A full-screen look at today\u2019s events, tasks and subjects.',
   },
   settings: {
     title: 'Settings',

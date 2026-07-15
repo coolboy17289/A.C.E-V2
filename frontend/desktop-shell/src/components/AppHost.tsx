@@ -2,6 +2,8 @@ import React from 'react';
 import type { AppId } from '@ace/shared';
 
 import AiApp from '@ace/app-ai';
+import FocusApp from '@ace/app-focus';
+import HomeApp from '@ace/app-home';
 import SettingsApp from '@ace/app-settings';
 
 /**
@@ -15,6 +17,8 @@ import SettingsApp from '@ace/app-settings';
  */
 const REGISTRY: Partial<Record<AppId, React.ComponentType>> = {
   ai: AiApp,
+  focus: FocusApp,
+  home: HomeApp,
   settings: SettingsApp,
 };
 

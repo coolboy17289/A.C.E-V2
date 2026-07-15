@@ -5,6 +5,15 @@ import type { AppManifest } from './types.js';
  * working TypeScript types (`AppId` is unchanged) but the desktop shell
  * will not surface it. To re-enable an app, drop its `AppManifest` back in
  * here and follow the steps in `later/README.md`.
+ *
+ * Order notes:
+ *   - `settings` (1) + `ai` (2) ship first; both were the original two.
+ *   - `focus` (3) is the Pomodoro app, restored in v1.2.5.
+ *   - The Dashboard nav item is pinned at the top of the sidebar by
+ *     `Sidebar.tsx`, so it doesn't need a registry entry. Tasks /
+ *     Subjects / Planner / Statistics remain in `later/apps/` and are
+ *     intentionally NOT in the registry yet — re-enable them by moving
+ *     the directory back and adding a manifest here.
  */
 export const APP_REGISTRY: readonly AppManifest[] = [
   {
@@ -22,6 +31,14 @@ export const APP_REGISTRY: readonly AppManifest[] = [
     icon: '🧠',
     accent: '#22d3ee',
     order: 2,
+  },
+  {
+    id: 'focus',
+    name: 'Focus',
+    description: 'Pomodoro timer with break tracking and session history',
+    icon: '⏱️',
+    accent: '#34d399',
+    order: 3,
   },
 ] as const;
 

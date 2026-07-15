@@ -7,6 +7,8 @@
       "@ace/shared": ["../shared/src/index.ts"],
       "@ace/shared/*": ["../shared/src/*"],
       "@ace/app-ai": ["../apps/ai/src/index.tsx"],
+      "@ace/app-focus": ["../apps/focus/src/index.tsx"],
+      "@ace/app-home": ["../apps/home/src/index.tsx"],
       "@ace/app-settings": ["../apps/settings/src/index.tsx"],
       "@backgrounds/*": ["./public/backgrounds/*"]
     }
