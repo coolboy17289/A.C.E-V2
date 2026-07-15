@@ -150,4 +150,6 @@ Further updates will be added once more information is discovered, including the
 Update:
        New push no version update comminted claude code fixis
                                                              Timestamp: jul 1510 hrs  
-Update: version 1.2.1 --beta is now being pushed timespame jul 15 1829 hr                                                              
+Update: version 1.2.1 --beta is now being pushed timespame jul 15 1829hr                                                              
+Update v1.2.1--beta is a broken vertion not to be used 
+update v1.2.2 -- beta is a fix hopefull that is now being pushed 

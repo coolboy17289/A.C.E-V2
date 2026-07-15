@@ -21,17 +21,23 @@
     --ace-bg-deep: #0d1330;
     --ace-ink: #e6ecff;
     --ace-muted: #9aa6c4;
-    --ace-border: rgba(255, 255, 255, 0.1);
+    --ace-border: rgba(255, 255, 255, 0.10);
     --ace-glass: rgba(13, 19, 48, 0.78);
     --ace-grid: rgba(255, 255, 255, 0.06);
     --ace-shadow: 0 24px 60px -20px rgba(0, 0, 0, 0.55), 0 8px 18px -6px rgba(0, 0, 0, 0.4);
     --ace-font-scale: 1;
-    /* Chrome bar heights — exposed as custom properties so window math in
-       `Window.tsx` reads the same value the actual bars use. The literals
-       below must match the `h-*` Tailwind classes on TopBar / Taskbar. */
-    --ace-topbar-height: 48px;
-    --ace-taskbar-height: 64px;
+    /* Chrome heights used by the website-style shell. Sidebar is
+       fixed-width (collapses), header is fixed-height. Read by JS via
+       getComputedStyle in any future component that needs to know. */
+    --ace-sidebar-width: 256px;
+    --ace-sidebar-width-collapsed: 72px;
+    --ace-header-height: 76px;
+    /* Sentinel value used by App.tsx to detect "we have never had a
+       wallpaper saved" \u2014 any localStorage value equal to this string
+       means the user hasn't customised their wallpaper yet and we can
+       safely adopt the backend's value. */
   }
+
   /* Font scale is multiplied through the root font-size so every
      rem-based utility scales uniformly. Clamped to a sane range. */
   html { font-size: clamp(14px, calc(16px * var(--ace-font-scale)), 24px); }
@@ -119,4 +125,5 @@ html[data-reduce-motion='true'] *::after {
   transition-duration: 0.01ms !important;
 }
 
-/* Custom scrollbars are already declared in index.html; nothing more here. */
+/* Scrollbars are inherited from index.html. The site shell has a
+   `flex-1 overflow-y-auto` content column that needs them. */
