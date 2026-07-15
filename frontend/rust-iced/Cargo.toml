@@ -1,0 +1,26 @@
+[package]
+name = "ace-rust-iced"
+version = "0.1.0"
+edition = "2021"
+description = "A.C.E OS front-end: Rust + Iced v0.13 (native Wayland/X11)."
+license = "MIT"
+
+# rustls-tls is used instead of OpenSSL so the binary doesn't depend on
+# the system libssl on the Pi 5 (where libssl-dev may not be installed).
+
+[dependencies]
+iced         = "0.13"
+serde        = { version = "1", features = ["derive"] }
+serde_json   = "1"
+reqwest      = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+
+[profile.release]
+opt-level = 3
+lto       = true
+strip     = true
+codegen-units = 1
+
+[workspace]
+# This crate is a leaf — declaring an empty [workspace] here stops
+# `cargo` from absorbing any sibling crates and keeps the build graph
+# scoped to just this front-end.

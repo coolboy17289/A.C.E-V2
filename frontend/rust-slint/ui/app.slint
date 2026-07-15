@@ -1,0 +1,92 @@
+// A.C.E OS · Rust + Slint front-end (declarative UI).
+//
+// `slint::include_modules!()` (called from main.rs) generates a strong
+// typed `AppWindow` from this file. Touching the `backend-text`,
+// `user-text`, or `error-text` properties on the Rust side updates the
+// rendered text via the Slint property binding pipeline.
+
+export component AppWindow inherits Window {
+    title: "A.C.E OS · Slint";
+    width: 640px;
+    height: 400px;
+    background: #0b1020;
+
+    in-out property <string> backend-text: "—";
+    in-out property <string> user-text:    "—";
+    in-out property <string> error-text:   "";
+    in-out property <bool>   loading:      false;
+
+    callback refresh-clicked();
+
+    VerticalLayout {
+        padding: 32px;
+        spacing: 12px;
+        alignment: start;
+
+        Text {
+            text: "A.C.E OS";
+            font-size: 28px;
+            color: #e8eaf3;
+        }
+        Text {
+            text: "Rust + Slint shell";
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        Rectangle {
+            height: 1px;
+            background: #1f2a44;
+        }
+
+        HorizontalLayout {
+            spacing: 16px;
+            Text {
+                text: "Backend:";
+                font-size: 11px;
+                color: #94a3b8;
+                vertical-alignment: center;
+            }
+            Text {
+                text: root.backend-text;
+                font-size: 15px;
+                color: #e8eaf3;
+                vertical-alignment: center;
+            }
+        }
+
+        HorizontalLayout {
+            spacing: 16px;
+            Text {
+                text: "User:";
+                font-size: 11px;
+                color: #94a3b8;
+                vertical-alignment: center;
+            }
+            Text {
+                text: root.user-text;
+                font-size: 15px;
+                color: #60a5fa;
+                vertical-alignment: center;
+            }
+        }
+
+        Rectangle {
+            height: 8px;
+            background: transparent;
+        }
+
+        refresh-btn := Button {
+            text: root.loading ? "Refreshing…" : "Refresh";
+            enabled: !root.loading;
+            clicked => { root.refresh-clicked(); }
+        }
+
+        Text {
+            text: root.error-text;
+            color: #fca5a5;
+            visible: root.error-text != "";
+            font-size: 12px;
+        }
+    }
+}
